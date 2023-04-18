@@ -16,5 +16,7 @@ class Store extends Model
         "state",
         "phone",
         "email",
+        'postcode',
+        'stateAbbr'
     ];
 }

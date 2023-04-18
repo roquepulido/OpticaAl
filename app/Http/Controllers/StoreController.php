@@ -12,6 +12,6 @@ class StoreController extends Controller
     public function index()
     {
         $stores = Store::all();
-        return View('test', ["data" => $stores]);
+        return View('test', ["stores" => $stores]);
     }
 }

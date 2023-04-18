@@ -24,6 +24,8 @@ class StoreFactory extends Factory
             "state" => fake()->state(),
             "phone" => fake()->phoneNumber(),
             "email" => fake()->email(),
+            "postcode" => fake()->postcode(),
+            "stateAbbr" => fake()->stateAbbr(),
         ];
     }
 }

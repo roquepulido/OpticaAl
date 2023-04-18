@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string("state")->nullable();
             $table->string("phone")->nullable();
             $table->string("email")->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('stateAbbr')->nullable();
             $table->timestamps();
         });
     }

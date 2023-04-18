@@ -7,15 +7,20 @@
         <title>Document</title>
     </head>
     <body>
-        @foreach($data as $d)
-        <p>{{$d->name}}</p>
-        <p>{{$d->street}}</p>
-        <p>{{$d->number}}</p>
-        <p>{{$d->suburb}}</p>
-        <p>{{$d->city}}</p>
-        <p>{{$d->state}}</p>
-        <p>{{$d->phone}}</p>
-        <p>{{$d->email}}</p>
+        <h1>Sucursales</h1>
+        @foreach($stores as $store)
+        <h3>{{$store->name}}, {{$store->stateAbbr}}</h3>
+        <ul>
+            <li>Calle: {{$store->street}}</li>
+            <li>Numero: {{$store->number}}</li>
+            <li>Colonia: {{$store->suburb}}</li>
+            <li>Ciudad: {{$store->city}}</li>
+            <li>CP: {{$store->postcode}}</li>
+            <li>Estado: {{$store->state}}</li>
+            <li>Telefono: {{$store->phone}}</li>
+            <li>Email: {{$store->email}}</li>
+        </ul>
+
         @endforeach
     </body>
 </html>
