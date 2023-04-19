@@ -3,6 +3,7 @@
 use App\Http\Controllers\FramesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\TreatmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/test-stores', [StoreController::class, 'index']);
 Route::get('/test-frames', [FramesController::class, 'index']);
+Route::get('/test-treatment', [TreatmentController::class, 'index']);
 Route::get('/hi', function () {
     return view('hi');
 })->middleware('role:admin');
