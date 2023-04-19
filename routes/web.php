@@ -4,6 +4,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiagnosticController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FramesController;
+use App\Http\Controllers\KindWorkController;
+use App\Http\Controllers\LabController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TreatmentController;
@@ -41,6 +43,8 @@ Route::get('/test-treatment', [TreatmentController::class, 'index']);
 Route::get('/test-diag', [DiagnosticController::class, 'index']);
 Route::get('/test-customer', [CustomerController::class, 'index']);
 Route::get('/test-employee', [EmployeeController::class, 'index']);
+Route::get('/test-labs', [LabController::class, 'index']);
+Route::get('/test-kind', [KindWorkController::class, 'index']);
 
 //end test
 
