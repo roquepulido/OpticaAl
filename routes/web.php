@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiagnosticController;
 use App\Http\Controllers\FramesController;
 use App\Http\Controllers\ProfileController;
@@ -35,6 +36,7 @@ Route::get('/test-stores', [StoreController::class, 'index']);
 Route::get('/test-frames', [FramesController::class, 'index']);
 Route::get('/test-treatment', [TreatmentController::class, 'index']);
 Route::get('/test-diag', [DiagnosticController::class, 'index']);
+Route::get('/test-customer', [CustomerController::class, 'index']);
 Route::get('/hi', function () {
     return view('hi');
 })->middleware('role:admin');
