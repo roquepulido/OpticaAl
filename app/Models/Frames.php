@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Frames extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "model",
+        "color",
+        "code",
+        "pics",
+    ];
 }

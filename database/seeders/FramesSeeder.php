@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Frames;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class FramesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Frames::factory(50)->create();
     }
 }

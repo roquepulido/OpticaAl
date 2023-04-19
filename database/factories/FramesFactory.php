@@ -17,7 +17,9 @@ class FramesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "model" => fake()->word(),
+            "color" => fake()->safeColorName(),
+            "code" => fake()->bothify('??-####'),
         ];
     }
 }

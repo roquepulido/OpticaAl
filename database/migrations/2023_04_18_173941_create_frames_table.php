@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("model");
             $table->string("color")->nullable();
             $table->string("code")->nullable();
+            $table->string("pics")->nullable();
             $table->timestamps();
         });
     }

@@ -7,20 +7,15 @@
         <title>Document</title>
     </head>
     <body>
-        <h1>Sucursales</h1>
-        @foreach($stores as $store)
-        <h3>{{$store->name}}, {{$store->stateAbbr}}</h3>
+        @foreach($data as $d)
         <ul>
-            <li>Calle: {{$store->street}}</li>
-            <li>Numero: {{$store->number}}</li>
-            <li>Colonia: {{$store->suburb}}</li>
-            <li>Ciudad: {{$store->city}}</li>
-            <li>CP: {{$store->postcode}}</li>
-            <li>Estado: {{$store->state}}</li>
-            <li>Telefono: {{$store->phone}}</li>
-            <li>Email: {{$store->email}}</li>
-        </ul>
+            @php $elem=json_decode($d) @endphp @foreach($elem as $e => $key)
+            <li>
+                <strong>{{ $e }} </strong> : {{ $key }}
+            </li>
 
+            @endforeach
+        </ul>
         @endforeach
     </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FramesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/test-stores', [StoreController::class, 'index']);
+Route::get('/test-frames', [FramesController::class, 'index']);
 Route::get('/hi', function () {
     return view('hi');
 })->middleware('role:admin');
