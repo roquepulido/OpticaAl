@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FramesController;
 use App\Http\Controllers\KindWorkController;
 use App\Http\Controllers\LabController;
+use App\Http\Controllers\LensController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TreatmentController;
@@ -45,6 +46,7 @@ Route::get('/test-customer', [CustomerController::class, 'index']);
 Route::get('/test-employee', [EmployeeController::class, 'index']);
 Route::get('/test-labs', [LabController::class, 'index']);
 Route::get('/test-kind', [KindWorkController::class, 'index']);
+Route::get('/test-lens', [LensController::class, 'index']);
 
 //end test
 

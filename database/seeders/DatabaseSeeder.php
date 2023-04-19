@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(EmployeeSeeder::class);
         $this->call(KindWorkSeeder::class);
         $this->call(LabSeeder::class);
+        $this->call(LensSeeder::class);
     }
 }
