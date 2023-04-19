@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiagnosticController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FramesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
@@ -32,11 +33,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+//test Routes
 Route::get('/test-stores', [StoreController::class, 'index']);
 Route::get('/test-frames', [FramesController::class, 'index']);
 Route::get('/test-treatment', [TreatmentController::class, 'index']);
 Route::get('/test-diag', [DiagnosticController::class, 'index']);
 Route::get('/test-customer', [CustomerController::class, 'index']);
+Route::get('/test-employee', [EmployeeController::class, 'index']);
+
+//end test
+
 Route::get('/hi', function () {
     return view('hi');
 })->middleware('role:admin');
