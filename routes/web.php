@@ -41,18 +41,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource("sucursales", StoreController::class);
-Route::resource("armazones", FramesController::class);
-Route::resource("tratamientos", TreatmentController::class);
-Route::resource("diagnosticos", DiagnosticController::class);
-Route::resource("clientes", CustomerController::class);
-Route::resource("empleados", EmployeeController::class);
-Route::resource("laboratorios", LabController::class);
-Route::resource("tipos-lab", KindWorkController::class);
-Route::resource("micas", LensController::class);
-Route::resource("stocks", StockController::class);
-Route::resource("lentes", EyeglassController::class);
-Route::resource("ventas", SaleController::class);
+Route::middleware('auth')->group(function () {
+    Route::resources([
+        "sucursales" => StoreController::class,
+        "armazones" => FramesController::class,
+        "tratamientos" => TreatmentController::class,
+        "diagnosticos" => DiagnosticController::class,
+        "clientes" => CustomerController::class,
+        "empleados" => EmployeeController::class,
+        "laboratorios" => LabController::class,
+        "tipos-lab" => KindWorkController::class,
+        "micas" => LensController::class,
+        "stocks" => StockController::class,
+        "lentes" => EyeglassController::class,
+        "ventas" => SaleController::class,
+    ]);
+});
 
 
 //test Routes
