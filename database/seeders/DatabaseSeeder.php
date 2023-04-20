@@ -32,5 +32,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LabSeeder::class);
         $this->call(LensSeeder::class);
         $this->call(StockSeeder::class);
+        $this->call(EyeglassSeeder::class);
     }
 }

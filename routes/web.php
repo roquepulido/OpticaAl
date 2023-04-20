@@ -3,6 +3,7 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiagnosticController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EyeglassController;
 use App\Http\Controllers\FramesController;
 use App\Http\Controllers\KindWorkController;
 use App\Http\Controllers\LabController;
@@ -49,6 +50,7 @@ Route::get('/test-labs', [LabController::class, 'index']);
 Route::get('/test-kind', [KindWorkController::class, 'index']);
 Route::get('/test-lens', [LensController::class, 'index']);
 Route::get('/test-stock', [StockController::class, 'index']);
+Route::get('/test-glass', [EyeglassController::class, 'index']);
 
 //end test
 
