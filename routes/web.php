@@ -9,6 +9,7 @@ use App\Http\Controllers\KindWorkController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\LensController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TreatmentController;
@@ -51,6 +52,7 @@ Route::get('/test-kind', [KindWorkController::class, 'index']);
 Route::get('/test-lens', [LensController::class, 'index']);
 Route::get('/test-stock', [StockController::class, 'index']);
 Route::get('/test-glass', [EyeglassController::class, 'index']);
+Route::get('/test-sales', [SaleController::class, 'index']);
 
 //end test
 

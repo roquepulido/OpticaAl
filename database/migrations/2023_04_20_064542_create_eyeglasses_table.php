@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('eyeglasses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('frame_id')->constrained("frames");
-            $table->foreignId('left_lent_id')->unique()->constrained("lenses");
-            $table->foreignId('rigth_lent_id')->unique()->constrained("lenses");
+            $table->foreignId('left_lent_id')->constrained("lenses");
+            $table->foreignId('rigth_lent_id')->constrained("lenses");
             $table->foreignId('treatment_id')->constrained('treatments');
+            $table->foreignId("folio_id")->constrained("sales");
             $table->timestamps();
         });
     }

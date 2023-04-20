@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Frames;
 use App\Models\Lens;
+use App\Models\Sale;
 use App\Models\Treatment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,9 +22,10 @@ class EyeglassFactory extends Factory
     {
         return [
             "frame_id" => fake()->randomElement(Frames::all("id")),
-            "left_lent_id" => fake()->randomElement(Lens::all('id')),
-            "rigth_lent_id" => fake()->randomElement(Lens::all('id')),
-            "treatment_id" => fake()->randomElement(Treatment::all('id'))
+            "left_lent_id" => fake()->unique()->randomElement(Lens::all('id')),
+            "rigth_lent_id" => fake()->unique()->randomElement(Lens::all('id')),
+            "treatment_id" => fake()->randomElement(Treatment::all('id')),
+            "folio_id" => fake()->randomElement(Sale::all('id'))
         ];
     }
 }
