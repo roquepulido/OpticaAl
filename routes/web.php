@@ -8,6 +8,7 @@ use App\Http\Controllers\KindWorkController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\LensController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TreatmentController;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,7 @@ Route::get('/test-employee', [EmployeeController::class, 'index']);
 Route::get('/test-labs', [LabController::class, 'index']);
 Route::get('/test-kind', [KindWorkController::class, 'index']);
 Route::get('/test-lens', [LensController::class, 'index']);
+Route::get('/test-stock', [StockController::class, 'index']);
 
 //end test
 

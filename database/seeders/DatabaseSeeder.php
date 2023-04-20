@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KindWorkSeeder::class);
         $this->call(LabSeeder::class);
         $this->call(LensSeeder::class);
+        $this->call(StockSeeder::class);
     }
 }
