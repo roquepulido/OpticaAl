@@ -13,6 +13,7 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TreatmentController;
+use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,12 +41,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::controller(CustomerController::class)->group(function () {
+    Route::get('/clientes', 'index');
+    Route::post('/orders', 'store');
+});
+
 //test Routes
 Route::get('/test-stores', [StoreController::class, 'index']);
 Route::get('/test-frames', [FramesController::class, 'index']);
 Route::get('/test-treatment', [TreatmentController::class, 'index']);
 Route::get('/test-diag', [DiagnosticController::class, 'index']);
-Route::get('/test-customer', [CustomerController::class, 'index']);
+Route::get('/test-customer', [CustomerController::class, 'index'])->name('customer.index');
 Route::get('/test-employee', [EmployeeController::class, 'index']);
 Route::get('/test-labs', [LabController::class, 'index']);
 Route::get('/test-kind', [KindWorkController::class, 'index']);
@@ -55,6 +61,8 @@ Route::get('/test-glass', [EyeglassController::class, 'index']);
 Route::get('/test-sales', [SaleController::class, 'index']);
 
 //end test
+
+
 
 Route::get('/hi', function () {
     return view('hi');
