@@ -41,17 +41,26 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::controller(CustomerController::class)->group(function () {
-    Route::get('/clientes', 'index');
-    Route::post('/orders', 'store');
-});
+Route::resource("sucursales", StoreController::class);
+Route::resource("armazones", FramesController::class);
+Route::resource("tratamientos", TreatmentController::class);
+Route::resource("diagnosticos", DiagnosticController::class);
+Route::resource("clientes", CustomerController::class);
+Route::resource("empleados", EmployeeController::class);
+Route::resource("laboratorios", LabController::class);
+Route::resource("tipos-lab", KindWorkController::class);
+Route::resource("micas", LensController::class);
+Route::resource("stocks", StockController::class);
+Route::resource("lentes", EyeglassController::class);
+Route::resource("ventas", SaleController::class);
+
 
 //test Routes
 Route::get('/test-stores', [StoreController::class, 'index']);
 Route::get('/test-frames', [FramesController::class, 'index']);
 Route::get('/test-treatment', [TreatmentController::class, 'index']);
 Route::get('/test-diag', [DiagnosticController::class, 'index']);
-Route::get('/test-customer', [CustomerController::class, 'index'])->name('customer.index');
+Route::get('/test-customer', [CustomerController::class, 'index']);
 Route::get('/test-employee', [EmployeeController::class, 'index']);
 Route::get('/test-labs', [LabController::class, 'index']);
 Route::get('/test-kind', [KindWorkController::class, 'index']);
