@@ -72,7 +72,9 @@ Route::get('/test-lens', [LensController::class, 'index']);
 Route::get('/test-stock', [StockController::class, 'index']);
 Route::get('/test-glass', [EyeglassController::class, 'index']);
 Route::get('/test-sales', [SaleController::class, 'index']);
-Route::get("/test",function(){return view("admin-layout.index");});
+Route::get("/test", function () {
+    return view("test");
+});
 
 //end test
 
