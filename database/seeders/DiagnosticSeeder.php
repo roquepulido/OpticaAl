@@ -13,6 +13,24 @@ class DiagnosticSeeder extends Seeder
      */
     public function run(): void
     {
-        Diagnostic::factory(5)->create();
+        $diags = [
+            "Ambliopía",
+            "Astigmatismo",
+            "Cataratas",
+            "Daltonismo",
+            "Retinopatía diabética",
+            "Síndrome del ojo seco",
+            "Miodesopsias",
+            "Glaucoma",
+            "Conjuntivitis aguda",
+            "Desprendimiento de la retina",
+        ];
+        Diagnostic::create([
+            'name' => "Ninguno"
+        ]);
+        foreach ($diags as $diag) {
+            Diagnostic::create(["name" => $diag]);
+        }
+        // Diagnostic::factory(5)->create();
     }
 }

@@ -1,8 +1,9 @@
 import "./bootstrap";
 
 import Alpine from "alpinejs";
-import * as bootstrap from "bootstrap";
+//User JS define
 
+// END user
 window.Alpine = Alpine;
 
 Alpine.start();

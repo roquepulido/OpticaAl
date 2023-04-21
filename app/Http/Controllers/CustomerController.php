@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Diagnostic;
 use Illuminate\Http\Request;
 
 /*
@@ -17,7 +18,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return View('test', ["data" => $customers]);
+        return View('customers.index', ["customers" => $customers]);
     }
 
     /**
@@ -25,7 +26,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return View('customer.create');
+        $diags = Diagnostic::all();
+        return View('customers.create', ["diags" => $diags]);
     }
 
     /**
@@ -38,9 +40,9 @@ class CustomerController extends Controller
             "last_name" => $request->last_name,
             "phone" => $request->phone,
             "email" => $request->email,
-            "treatment_id" => $request->treatment_id
+            "diagnostic_id" => $request->diagnostic_id
         ]);
-        return redirect()->route("customer.index")->with("msg", "Cliente Creado");
+        return redirect()->route("customers.index")->with(["status" => "Cliente Creado"]); 
     }
 
     /**

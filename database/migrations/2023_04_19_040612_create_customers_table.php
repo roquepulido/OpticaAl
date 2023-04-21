@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("last_name");
             $table->string("phone");
             $table->string("email");
-            $table->foreignId("treatment_id")->nullable()->constrained("treatments");
+            $table->foreignId("diagnostic_id")->default(1)->constrained("diagnostics");
             $table->timestamps();
         });
     }

@@ -43,18 +43,18 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resources([
-        "sucursales" => StoreController::class,
-        "armazones" => FramesController::class,
-        "tratamientos" => TreatmentController::class,
-        "diagnosticos" => DiagnosticController::class,
-        "clientes" => CustomerController::class,
-        "empleados" => EmployeeController::class,
-        "laboratorios" => LabController::class,
-        "tipos-lab" => KindWorkController::class,
-        "micas" => LensController::class,
+        "stores" => StoreController::class,
+        "frames" => FramesController::class,
+        "treatments" => TreatmentController::class,
+        "diagnostics" => DiagnosticController::class,
+        "customers" => CustomerController::class,
+        "employees" => EmployeeController::class,
+        "labs" => LabController::class,
+        "kinds" => KindWorkController::class,
+        "lenses" => LensController::class,
         "stocks" => StockController::class,
-        "lentes" => EyeglassController::class,
-        "ventas" => SaleController::class,
+        "eyeglasses" => EyeglassController::class,
+        "sales" => SaleController::class,
     ]);
 });
 

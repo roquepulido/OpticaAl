@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Diagnostic;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            "name" => fake()->name(), "last_name" => fake()->lastName(), "phone" => fake()->phoneNumber(), "email" => fake()->email()
+            "name" => fake()->name(),
+            "last_name" => fake()->lastName(),
+            "phone" => fake()->phoneNumber(),
+            "email" => fake()->email(),
+            "diagnostic_id" => fake()->randomElement(Diagnostic::all('id'))
         ];
     }
 }
