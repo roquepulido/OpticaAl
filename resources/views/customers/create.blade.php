@@ -1,6 +1,6 @@
-<x-app-layout>
+<x-layouts.app>
+    <x-slot name="header"> Agregar Cliente </x-slot>
     <div class="container">
-        <h1>Creacion de Cliente</h1>
         <form method="post" action="{{ route('customers.store') }}">
             @csrf
             <div class="form-group">
@@ -64,4 +64,4 @@
             </div>
         </form>
     </div>
-</x-app-layout>
+</x-layouts.app>

@@ -20,134 +20,152 @@
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a
-        >
+            <span>Dashboard</span>
+        </a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider" />
 
     <!-- Heading -->
-    <div class="sidebar-heading">Interface</div>
+    @role('admin')
+    <div class="sidebar-heading">Admin</div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <li
+        class="nav-item {{ Route::currentRouteNamed( 'employees.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('employees.index') }}">
+            <i class="fas fa-id-card-alt"></i>
+            <span>Empleados</span>
+        </a>
+    </li>
+    <li
+        class="nav-item {{ Route::currentRouteNamed( 'stores.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('stores.index') }}">
+            <i class="fas fa-store-alt"></i>
+            <span>Tiendas</span>
+        </a>
+    </li>
+    <li
+        class="nav-item {{ Route::currentRouteNamed( 'stores.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('stores.index') }}">
+            <i class="fas fa-users"></i>
+            <span>Usuarios</span>
+        </a>
+    </li>
+    <li
+        class="nav-item {{ Route::currentRouteNamed( 'diagnostics.index' )||Route::currentRouteNamed( 'kinds.index' )||Route::currentRouteNamed( 'treatments.index' ) ?  'active' : '' }}"
+    >
         <a
-            class="nav-link collapsed"
+            class="nav-link"
             href="#"
             data-toggle="collapse"
             data-target="#collapseTwo"
             aria-expanded="true"
             aria-controls="collapseTwo"
         >
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+            <i class="fas fa-table"></i>
+            <span>Info de Tablas</span>
         </a>
         <div
             id="collapseTwo"
-            class="collapse"
+            class="collapse {{ Route::currentRouteNamed( 'diagnostics.index' )||Route::currentRouteNamed( 'kinds.index' )||Route::currentRouteNamed( 'treatments.index' ) ?  'show' : '' }}"
             aria-labelledby="headingTwo"
             data-parent="#accordionSidebar"
         >
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
+                <h6 class="collapse-header">Info de menus:</h6>
+                <a
+                    class="collapse-item {{ Route::currentRouteNamed( 'diagnostics.index' ) ?  'active' : '' }}"
+                    href="{{ route('diagnostics.index') }}"
+                    >Diagnosticos</a
+                >
+                <a
+                    class="collapse-item {{ Route::currentRouteNamed( 'kinds.index' ) ?  'active' : '' }}"
+                    href="{{ route('kinds.index') }}"
+                    >Tipos de trabajo</a
+                >
+                <a
+                    class="collapse-item {{ Route::currentRouteNamed( 'treatments.index' ) ?  'active' : '' }}"
+                    href="{{ route('treatments.index') }}"
+                    >Tratamientos</a
+                >
             </div>
         </div>
     </li>
-
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a
-            class="nav-link collapsed"
-            href="#"
-            data-toggle="collapse"
-            data-target="#collapseUtilities"
-            aria-expanded="true"
-            aria-controls="collapseUtilities"
-        >
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
-        </a>
-        <div
-            id="collapseUtilities"
-            class="collapse"
-            aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar"
-        >
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html"
-                    >Borders</a
-                >
-                <a class="collapse-item" href="utilities-animation.html"
-                    >Animations</a
-                >
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
-    </li>
+    @endrole
 
     <!-- Divider -->
     <hr class="sidebar-divider" />
 
     <!-- Heading -->
-    <div class="sidebar-heading">Addons</div>
+    <div class="sidebar-heading">Ventas</div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a
-            class="nav-link collapsed"
-            href="#"
-            data-toggle="collapse"
-            data-target="#collapsePages"
-            aria-expanded="true"
-            aria-controls="collapsePages"
-        >
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+    <li
+        class="nav-item  {{ Route::currentRouteNamed( 'customers.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('customers.index') }}">
+            <i class="far fa-address-book"></i>
+            <span>Clientes</span>
         </a>
-        <div
-            id="collapsePages"
-            class="collapse"
-            aria-labelledby="headingPages"
-            data-parent="#accordionSidebar"
-        >
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html"
-                    >Forgot Password</a
-                >
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
-        </div>
     </li>
-
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a
-        >
+    <li
+        class="nav-item  {{ Route::currentRouteNamed( 'sales.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('sales.index') }}">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>Ventas</span>
+        </a>
     </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a
-        >
-    </li>
-
-    <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block" />
+    <div class="sidebar-heading">Pedidos</div>
+    <li
+        class="nav-item  {{ Route::currentRouteNamed( 'lenses.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('lenses.index') }}">
+            <i class="fas fa-eye"></i>
+            <span>Micas</span>
+        </a>
+    </li>
+    <li
+        class="nav-item  {{ Route::currentRouteNamed( 'eyeglasses.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('eyeglasses.index') }}">
+            <i class="fas fa-glasses"></i>
+            <span>Lentes</span>
+        </a>
+    </li>
+    <li
+        class="nav-item  {{ Route::currentRouteNamed( 'labs.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('labs.index') }}">
+            <i class="fas fa-flask"></i>
+            <span>Laboratorios</span>
+        </a>
+    </li>
+    <hr class="sidebar-divider d-none d-md-block" />
+    <div class="sidebar-heading">Stock</div>
+    <!-- Nav Item - Charts -->
+    <li
+        class="nav-item {{ Route::currentRouteNamed( 'frames.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('frames.index') }}">
+            <i class="fas fa-glasses"></i>
+            <span>Armazones</span>
+        </a>
+    </li>
+    <li
+        class="nav-item {{ Route::currentRouteNamed( 'stocks.index' ) ?  'active' : '' }}"
+    >
+        <a class="nav-link" href="{{ route('stocks.index') }}">
+            <i class="far fa-list-alt"></i>
+            <span>Stocks</span>
+        </a>
+    </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

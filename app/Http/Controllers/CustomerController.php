@@ -42,7 +42,7 @@ class CustomerController extends Controller
             "email" => $request->email,
             "diagnostic_id" => $request->diagnostic_id
         ]);
-        return redirect()->route("customers.index")->with(["status" => "Cliente Creado"]); 
+        return redirect()->route("customers.index")->with(["status" => "Cliente Creado"]);
     }
 
     /**

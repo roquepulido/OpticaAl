@@ -4,18 +4,32 @@
         <a
             href="{{ route('customers.create') }}"
             class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-            ><i class="fas fa-download fa-sm text-white-50"></i> Crear
-            Cliente</a
+        >
+            <i class="fas fa-plus"></i>
+            Crear Cliente</a
         >
     </x-slot>
     <x-slot name="customJs">
         <script src="vendor/datatables/jquery.dataTables.min.js"></script>
         <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             $(document).ready(function () {
                 $("#dataTable").DataTable();
+        </script>
+        @if($message =Session::get('status' ))
+        <script>
+            $(document).ready(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "{{$message}}",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             });
         </script>
+        @endif
     </x-slot>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
