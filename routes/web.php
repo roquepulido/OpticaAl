@@ -13,7 +13,6 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TreatmentController;
-use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
 
 /*
