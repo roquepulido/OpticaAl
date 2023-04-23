@@ -18,7 +18,8 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return View('customers.index', ["customers" => $customers]);
+        $diags = Diagnostic::all();
+        return View('customers.index', ["customers" => $customers, "diags" => $diags]);
     }
 
     /**
@@ -50,7 +51,8 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $customer = Customer::find($id);
+        return $customer;
     }
 
     /**
@@ -66,7 +68,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $request;
     }
 
     /**
