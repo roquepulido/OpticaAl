@@ -68,7 +68,15 @@ class CustomerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        return $request;
+        $customer = Customer::find($id);
+        $customer->name = $request->name;
+        $customer->last_name = $request->last_name;
+        $customer->phone = $request->phone;
+        $customer->email = $request->email;
+        $customer->diagnostic_id = $request->diagnostic_id;
+
+        $customer->save();
+        return redirect()->route("customers.index")->with(["status" => "Registro Actualizado"]);
     }
 
     /**
@@ -76,6 +84,8 @@ class CustomerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
+        return "ok";
     }
 }

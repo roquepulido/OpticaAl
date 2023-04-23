@@ -25,30 +25,43 @@
             async function update(id) {
                 const url = "{{route('customers.index')}}/" + id;
                 const data = await fetch(url).then((res) => res.json());
-                console.log(data);
-                updateForm.id = data.id;
+
+                updateForm.id.value = data.id;
                 updateForm.name.value = data.name;
                 updateForm.last_name.value = data.last_name;
                 updateForm.phone.value = data.phone;
                 updateForm.email.value = data.email;
                 updateForm.diagnostic_id.value = data.diagnostic_id;
+                updateForm.action = url;
+
                 btnSubmit.addEventListener("click", async () => {
-                    const dataForm = Object.fromEntries(
-                        new FormData(updateForm).entries()
-                    );
-                    const response = await fetch(url, {
-                        method: "PUT",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: dataForm,
-                    }).then((res) => res.text());
-                    console.log(response);
+                    updateForm.submit();
                 });
                 updateModal.show();
             }
-            function del(id) {
-                alert("delete" + id);
+            async function del(id) {
+                Swal.fire({
+                    title: "Estas seguro?",
+                    text: "No se podra recuperar",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Si, Borrar",
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        const res = await fetch(
+                            "{{route('customers.index')}}/delete/" + id
+                        ).then((res) => res.text());
+                        if (res == "ok") {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Exito",
+                                text: "Registro Borrado",
+                            }).then(() => location.reload());
+                        }
+                    }
+                });
             }
         </script>
 
@@ -91,7 +104,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="updateForm" name="updateForm" method="post">
+                        <form id="updateForm" name="updateForm" method="POST">
                             @csrf
                             <input type="hidden" name="id" id="id" />
                             <div class="form-group">
@@ -209,19 +222,20 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach($customers as $id => $customer)
+                        @foreach($customers as $key => $customer)
                         <tr>
-                            <td>{{ $id + 1 }}</td>
+                            <td>{{ $key + 1 }}</td>
                             <td>{{$customer->name}}</td>
                             <td>{{$customer->last_name}}</td>
                             <td>{{$customer->phone}}</td>
                             <td>{{$customer->email}}</td>
                             <td>{{$customer->diagnostic->name}}</td>
                             <td>
-                                <a onclick="update({{$customer->id}})">
-                                    <i class="fas fa-edit fs-6"></i>
+                                @php $id = $customer->id; @endphp
+                                <a onclick="update({{ $id }});">
+                                    <i class="fas fa-edit"></i>
                                 </a>
-                                <a onclick="del({{$customer->id}})">
+                                <a onclick="del({{ $id }});">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
@@ -232,12 +246,4 @@
             </div>
         </div>
     </div>
-    <button
-        type="button"
-        class="btn btn-primary"
-        data-toggle="modal"
-        data-target="#updateModal"
-    >
-        Launch demo modal
-    </button>
 </x-layouts.app>

@@ -39,14 +39,22 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::middleware('auth')->group(function () {
+    Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');
+    Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
+    Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show');
+    Route::post('/customers/{id}', [CustomerController::class, 'update'])->name('customers.update');
+    Route::get('/customers/delete/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
+});
 
 Route::middleware('auth')->group(function () {
+
     Route::resources([
         "stores" => StoreController::class,
         "frames" => FramesController::class,
         "treatments" => TreatmentController::class,
         "diagnostics" => DiagnosticController::class,
-        "customers" => CustomerController::class,
         "employees" => EmployeeController::class,
         "labs" => LabController::class,
         "kinds" => KindWorkController::class,
