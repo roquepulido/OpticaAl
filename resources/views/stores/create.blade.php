@@ -2,7 +2,7 @@
     <x-slot name="header"> Agregar Tienda </x-slot>
     <div class="container">
         <form method="post" action="{{ route('stores.store') }}">
-            @csrf @csrf
+            @csrf
             <input type="hidden" name="id" id="id" />
             <div class="form-group">
                 <label for="name">Nombre:</label>

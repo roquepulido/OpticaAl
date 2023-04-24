@@ -300,11 +300,12 @@
                             <td>{{$store->postcode}}</td>
                             <td>
                                 @can('edit')
-                                <a onclick="update({{ $store->id }});">
+                                <a onclick="update({{$store->id}});">
                                     <i class="fas fa-edit"></i>
                                 </a>
+
                                 @endcan @can("delete")
-                                <a onclick="del({{ $store->id }});">
+                                <a onclick="del({{$store->id}});">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                 @endcan

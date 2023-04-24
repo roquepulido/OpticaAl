@@ -28,7 +28,19 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = Store::create([
+            "name" => $request->name,
+            "street" => $request->street,
+            "number" => $request->number,
+            "suburb" => $request->suburb,
+            "city" => $request->city,
+            "postcode" => $request->postcode,
+            "state" => $request->state,
+            "stateAbbr" => $request->stateAbbr,
+            "phone" => $request->phone,
+            "email" => $request->email,
+        ]);
+        return redirect()->route("stores.index")->with(["status" => "Registro Creado"]);
     }
 
     /**
@@ -55,11 +67,14 @@ class StoreController extends Controller
     {
         $store = Store::find($id);
         $store->name = $request->name;
-        $store->last_name = $request->last_name;
+        $store->street = $request->street;
+        $store->suburb = $request->suburb;
+        $store->city = $request->city;
+        $store->postcode = $request->postcode;
+        $store->state = $request->state;
+        $store->stateAbbr = $request->stateAbbr;
         $store->phone = $request->phone;
         $store->email = $request->email;
-        $store->diagnostic_id = $request->diagnostic_id;
-
         $store->save();
         return redirect()->route("stores.index")->with(["status" => "Registro Actualizado"]);
     }
