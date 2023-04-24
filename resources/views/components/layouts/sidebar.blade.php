@@ -33,7 +33,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li
-        class="nav-item {{ Route::currentRouteNamed( 'employees.index' ) ?  'active' : '' }}"
+        class="nav-item {{ Route::currentRouteNamed( 'employees.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('employees.index') }}">
             <i class="fas fa-id-card-alt"></i>
@@ -41,7 +41,7 @@
         </a>
     </li>
     <li
-        class="nav-item {{ Route::currentRouteNamed( 'stores.index' )||Route::currentRouteNamed( 'stores.create' ) ?  'active' : '' }}"
+        class="nav-item {{ Route::currentRouteNamed( 'stores.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('stores.index') }}">
             <i class="fas fa-store-alt"></i>
@@ -49,7 +49,7 @@
         </a>
     </li>
     <li
-        class="nav-item {{ Route::currentRouteNamed( 'stores.index' ) ?  'active' : '' }}"
+        class="nav-item {{ Route::currentRouteNamed( 'stores.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('stores.index') }}">
             <i class="fas fa-users"></i>
@@ -57,7 +57,7 @@
         </a>
     </li>
     <li
-        class="nav-item {{ Route::currentRouteNamed( 'diagnostics.index' )||Route::currentRouteNamed( 'kinds.index' )||Route::currentRouteNamed( 'treatments.index' ) ?  'active' : '' }}"
+        class="nav-item {{ Route::currentRouteNamed( 'diagnostics.*' )||Route::currentRouteNamed( 'kinds.*' )||Route::currentRouteNamed( 'treatments.*' ) ?  'active' : '' }}"
     >
         <a
             class="nav-link"
@@ -72,24 +72,24 @@
         </a>
         <div
             id="collapseTwo"
-            class="collapse {{ Route::currentRouteNamed( 'diagnostics.index' )||Route::currentRouteNamed( 'kinds.index' )||Route::currentRouteNamed( 'treatments.index' ) ?  'show' : '' }}"
+            class="collapse {{ Route::currentRouteNamed( 'diagnostics.*' )||Route::currentRouteNamed( 'kinds.*' )||Route::currentRouteNamed( 'treatments.*' ) ?  'show' : '' }}"
             aria-labelledby="headingTwo"
             data-parent="#accordionSidebar"
         >
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Info de menus:</h6>
                 <a
-                    class="collapse-item {{ Route::currentRouteNamed( 'diagnostics.index' ) ?  'active' : '' }}"
+                    class="collapse-item {{ Route::currentRouteNamed( 'diagnostics.*' ) ?  'active' : '' }}"
                     href="{{ route('diagnostics.index') }}"
                     >Diagnosticos</a
                 >
                 <a
-                    class="collapse-item {{ Route::currentRouteNamed( 'kinds.index' ) ?  'active' : '' }}"
+                    class="collapse-item {{ Route::currentRouteNamed( 'kinds.*' ) ?  'active' : '' }}"
                     href="{{ route('kinds.index') }}"
                     >Tipos de trabajo</a
                 >
                 <a
-                    class="collapse-item {{ Route::currentRouteNamed( 'treatments.index' ) ?  'active' : '' }}"
+                    class="collapse-item {{ Route::currentRouteNamed( 'treatments.*' ) ?  'active' : '' }}"
                     href="{{ route('treatments.index') }}"
                     >Tratamientos</a
                 >
@@ -106,7 +106,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li
-        class="nav-item  {{ Route::currentRouteNamed( 'customers.index' ) ?  'active' : '' }}"
+        class="nav-item  {{ Route::currentRouteNamed( 'customers.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('customers.index') }}">
             <i class="far fa-address-book"></i>
@@ -114,7 +114,7 @@
         </a>
     </li>
     <li
-        class="nav-item  {{ Route::currentRouteNamed( 'sales.index' ) ?  'active' : '' }}"
+        class="nav-item  {{ Route::currentRouteNamed( 'sales.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('sales.index') }}">
             <i class="fas fa-file-invoice-dollar"></i>
@@ -124,7 +124,7 @@
     <hr class="sidebar-divider d-none d-md-block" />
     <div class="sidebar-heading">Pedidos</div>
     <li
-        class="nav-item  {{ Route::currentRouteNamed( 'lenses.index' ) ?  'active' : '' }}"
+        class="nav-item  {{ Route::currentRouteNamed( 'lenses.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('lenses.index') }}">
             <i class="fas fa-eye"></i>
@@ -132,7 +132,7 @@
         </a>
     </li>
     <li
-        class="nav-item  {{ Route::currentRouteNamed( 'eyeglasses.index' ) ?  'active' : '' }}"
+        class="nav-item  {{ Route::currentRouteNamed( 'eyeglasses.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('eyeglasses.index') }}">
             <i class="fas fa-glasses"></i>
@@ -140,7 +140,7 @@
         </a>
     </li>
     <li
-        class="nav-item  {{ Route::currentRouteNamed( 'labs.index' ) ?  'active' : '' }}"
+        class="nav-item  {{ Route::currentRouteNamed( 'labs.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('labs.index') }}">
             <i class="fas fa-flask"></i>
@@ -151,7 +151,7 @@
     <div class="sidebar-heading">Stock</div>
     <!-- Nav Item - Charts -->
     <li
-        class="nav-item {{ Route::currentRouteNamed( 'frames.index' ) ?  'active' : '' }}"
+        class="nav-item {{ Route::currentRouteNamed( 'frames.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('frames.index') }}">
             <i class="fas fa-glasses"></i>
@@ -159,7 +159,7 @@
         </a>
     </li>
     <li
-        class="nav-item {{ Route::currentRouteNamed( 'stocks.index' ) ?  'active' : '' }}"
+        class="nav-item {{ Route::currentRouteNamed( 'stocks.*' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('stocks.index') }}">
             <i class="far fa-list-alt"></i>
