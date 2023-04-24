@@ -47,11 +47,18 @@ Route::middleware('auth')->group(function () {
     Route::post('/customers/{id}', [CustomerController::class, 'update'])->name('customers.update');
     Route::get('/customers/delete/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
 });
-
+Route::middleware('auth')->group(function () {
+    Route::get('/stores', [StoreController::class, 'index'])->name('stores.index');
+    Route::get('/stores/create', [StoreController::class, 'create'])->name('stores.create');
+    Route::post('/stores', [StoreController::class, 'store'])->name('stores.store');
+    Route::get('/stores/{id}', [StoreController::class, 'show'])->name('stores.show');
+    Route::post('/stores/{id}', [StoreController::class, 'update'])->name('stores.update');
+    Route::get('/stores/delete/{id}', [StoreController::class, 'destroy'])->name('stores.destroy');
+});
 Route::middleware('auth')->group(function () {
 
     Route::resources([
-        "stores" => StoreController::class,
+        
         "frames" => FramesController::class,
         "treatments" => TreatmentController::class,
         "diagnostics" => DiagnosticController::class,

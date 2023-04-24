@@ -41,7 +41,7 @@
         </a>
     </li>
     <li
-        class="nav-item {{ Route::currentRouteNamed( 'stores.index' ) ?  'active' : '' }}"
+        class="nav-item {{ Route::currentRouteNamed( 'stores.index' )||Route::currentRouteNamed( 'stores.create' ) ?  'active' : '' }}"
     >
         <a class="nav-link" href="{{ route('stores.index') }}">
             <i class="fas fa-store-alt"></i>

@@ -9,6 +9,7 @@ class Store extends Model
 {
     use HasFactory;
     protected $fillable = [
+        "name",
         "street",
         "number",
         "suburb",

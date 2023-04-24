@@ -1,13 +1,13 @@
 <x-layouts.app>
-    <x-slot name="header"> Clientes </x-slot>
+    <x-slot name="header"> Tiendas </x-slot>
     <x-slot name="btn">
         <a
-            href="{{ route('customers.create') }}"
+            href="{{ route('stores.create') }}"
             class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
         >
             <i class="fas fa-plus"></i>
-            Crear Cliente</a
-        >
+            Crear Tienda
+        </a>
     </x-slot>
     <x-slot name="customJs">
         <script src="vendor/datatables/jquery.dataTables.min.js"></script>
@@ -23,17 +23,21 @@
                 $("#dataTable").DataTable();
             });
             async function update(id) {
-                const url = "{{route('customers.index')}}/" + id;
+                const url = "{{route('stores.index')}}/" + id;
                 const data = await fetch(url).then((res) => res.json());
 
                 updateForm.id.value = data.id;
                 updateForm.name.value = data.name;
-                updateForm.last_name.value = data.last_name;
+                updateForm.street.value = data.street;
+                updateForm.number.value = data.number;
+                updateForm.suburb.value = data.suburb;
+                updateForm.city.value = data.city;
+                updateForm.state.value = data.state;
+                updateForm.postcode.value = data.postcode;
+                updateForm.stateAbbr.value = data.stateAbbr;
                 updateForm.phone.value = data.phone;
                 updateForm.email.value = data.email;
-                updateForm.diagnostic_id.value = data.diagnostic_id;
                 updateForm.action = url;
-
                 btnSubmit.addEventListener("click", async () => {
                     updateForm.submit();
                 });
@@ -51,7 +55,7 @@
                 }).then(async (result) => {
                     if (result.isConfirmed) {
                         const res = await fetch(
-                            "{{route('customers.index')}}/delete/" + id
+                            "{{route('stores.index')}}/delete/" + id
                         ).then((res) => res.text());
                         if (res == "ok") {
                             Swal.fire({
@@ -108,7 +112,7 @@
                             @csrf
                             <input type="hidden" name="id" id="id" />
                             <div class="form-group">
-                                <label for="name">Nombre(s):</label>
+                                <label for="name">Nombre:</label>
                                 <input
                                     type="text"
                                     class="form-control"
@@ -119,13 +123,79 @@
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="last_name">Apellido(s):</label>
+                                <label for="street">Calle:</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    id="last_name"
-                                    name="last_name"
+                                    id="street"
+                                    name="street"
+                                    placeholder="Ingresa Calle"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="number">Numero:</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="number"
+                                    name="number"
                                     placeholder="Ingresa Apellido"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="suburb">Colonia:</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="suburb"
+                                    name="suburb"
+                                    placeholder="Ingresa Colonia"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Ciudad:</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="city"
+                                    name="city"
+                                    placeholder="Ingresa Ciudad"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="state">Estado:</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="state"
+                                    name="state"
+                                    placeholder="Ingresa Estado"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="stateAbbr">Abreviatura:</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="stateAbbr"
+                                    name="stateAbbr"
+                                    placeholder="Ingresa Apellido"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="postcode">CP:</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="postcode"
+                                    name="postcode"
+                                    placeholder="Ingresa Estado"
                                     required
                                 />
                             </div>
@@ -150,20 +220,6 @@
                                     placeholder="Ingresa correo"
                                     required
                                 />
-                                <div class="form-group">
-                                    <label for="diagnostico">Diagnostico</label>
-                                    <select
-                                        class="form-control"
-                                        id="diagnostico"
-                                        name="diagnostic_id"
-                                    >
-                                        @foreach($diags as $diag )
-                                        <option value="{{$diag->id}}">
-                                            {{$diag->name}}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
                             </div>
                         </form>
                     </div>
@@ -189,7 +245,7 @@
     </x-slot>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Lista de clientes</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Lista de Tiendas</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -203,10 +259,14 @@
                         <tr>
                             <th>#</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
+                            <th>Calle</th>
+                            <th>Numero</th>
+                            <th>Colonia</th>
+                            <th>Ciudad</th>
+                            <th>Estado</th>
                             <th>Telefono</th>
                             <th>Email</th>
-                            <th>Diagnostico</th>
+                            <th>CP</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -214,29 +274,37 @@
                         <tr>
                             <th>#</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
+                            <th>Calle</th>
+                            <th>Numero</th>
+                            <th>Colonia</th>
+                            <th>Ciudad</th>
+                            <th>Estado</th>
                             <th>Telefono</th>
                             <th>Email</th>
-                            <th>Diagnostico</th>
+                            <th>CP</th>
                             <th></th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach($customers as $key => $customer)
+                        @foreach($stores as $key => $store)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{$customer->name}}</td>
-                            <td>{{$customer->last_name}}</td>
-                            <td>{{$customer->phone}}</td>
-                            <td>{{$customer->email}}</td>
-                            <td>{{$customer->diagnostic->name}}</td>
+                            <td>{{$store->name}}</td>
+                            <td>{{$store->street}}</td>
+                            <td>{{$store->number}}</td>
+                            <td>{{$store->suburb}}</td>
+                            <td>{{$store->city}}</td>
+                            <td>{{$store->state}}</td>
+                            <td>{{$store->phone}}</td>
+                            <td>{{$store->email}}</td>
+                            <td>{{$store->postcode}}</td>
                             <td>
                                 @can('edit')
-                                <a onclick="update({{ $customer->id }});">
+                                <a onclick="update({{ $store->id }});">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 @endcan @can("delete")
-                                <a onclick="del({{ $customer->id }});">
+                                <a onclick="del({{ $store->id }});">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                 @endcan
