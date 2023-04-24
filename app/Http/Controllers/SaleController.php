@@ -9,7 +9,7 @@ class SaleController extends Controller
 {
     public function index()
     {
-        $sale = Sale::all();
-        return View('test', ["data" => $sale]);
+        // $sale = Sale::all();
+        return View('test', ["page" => "ventas"]);
     }
 }

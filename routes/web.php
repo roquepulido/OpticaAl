@@ -13,6 +13,7 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TreatmentController;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,7 +59,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::resources([
-        
+
         "frames" => FramesController::class,
         "treatments" => TreatmentController::class,
         "diagnostics" => DiagnosticController::class,

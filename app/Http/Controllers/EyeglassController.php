@@ -9,7 +9,7 @@ class EyeglassController extends Controller
 {
     public function index()
     {
-        $eyeglasses = Eyeglass::all();
-        return View('test', ["data" => $eyeglasses]);
+        // $eyeglasses = Eyeglass::all();
+        return View('test', ["page" => "Lentes"]);
     }
 }

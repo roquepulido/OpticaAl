@@ -9,7 +9,7 @@ class LensController extends Controller
 {
     public function index()
     {
-        $lenses = Lens::all();
-        return View('test', ["data" => $lenses]);
+        // $lenses = Lens::all();
+        return View('test', ["page" => "Micas"]);
     }
 }

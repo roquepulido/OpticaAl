@@ -9,7 +9,7 @@ class DiagnosticController extends Controller
 {
     public function index()
     {
-        $diag = Diagnostic::all();
-        return View('test', ["data" => $diag]);
+        // $diag = Diagnostic::all();
+        return View('test', ["page" => "Diagnostico"]);
     }
 }

@@ -9,7 +9,7 @@ class KindWorkController extends Controller
 {
     public function index()
     {
-        $kind = KindWork::all();
-        return View('test', ["data" => $kind]);
+        // $kind = KindWork::all();
+        return View('test', ["page" => "Tipos de Trabajo"]);
     }
 }

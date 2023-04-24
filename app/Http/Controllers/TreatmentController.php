@@ -9,7 +9,7 @@ class TreatmentController extends Controller
 {
     public function index()
     {
-        $treatment = Treatment::all();
-        return View('test', ["data" => $treatment]);
+        // $treatment = Treatment::all();
+        return View('test', ["page" => "Tratamiento"]);
     }
 }

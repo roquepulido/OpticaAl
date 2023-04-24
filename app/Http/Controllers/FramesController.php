@@ -9,7 +9,7 @@ class FramesController extends Controller
 {
     public function index()
     {
-        $frames = Frames::all();
-        return View('test', ["data" => $frames]);
+        // $frames = Frames::all();
+        return View('test', ["page" => "Armazones"]);
     }
 }

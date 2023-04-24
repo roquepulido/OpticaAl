@@ -9,7 +9,7 @@ class LabController extends Controller
 {
     public function index()
     {
-        $labs = Lab::all();
-        return View('test', ["data" => $labs]);
+        // $labs = Lab::all();
+        return View('test', ["page" => "Laboratorios"]);
     }
 }
