@@ -17,7 +17,9 @@
     <hr class="sidebar-divider my-0" />
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li
+        class="nav-item {{ Route::currentRouteNamed( 'dashboard' ) ?  'active' : '' }}"
+    >
         <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
