@@ -13,6 +13,7 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TreatmentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
     Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');
@@ -70,6 +73,7 @@ Route::middleware('auth')->group(function () {
         "stocks" => StockController::class,
         "eyeglasses" => EyeglassController::class,
         "sales" => SaleController::class,
+        "users" => UserController::class,
     ]);
 });
 

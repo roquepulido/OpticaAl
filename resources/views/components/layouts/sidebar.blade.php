@@ -51,9 +51,9 @@
         </a>
     </li>
     <li
-        class="nav-item {{ Route::currentRouteNamed( 'stores.*' ) ?  'active' : '' }}"
+        class="nav-item {{ Route::currentRouteNamed( 'users.*' ) ?  'active' : '' }}"
     >
-        <a class="nav-link" href="{{ route('stores.index') }}">
+        <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-users"></i>
             <span>Usuarios</span>
         </a>

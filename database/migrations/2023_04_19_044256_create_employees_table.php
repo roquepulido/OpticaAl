@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string("email")->nullable();
             $table->string('postcode')->nullable();
             $table->string('stateAbbr')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
